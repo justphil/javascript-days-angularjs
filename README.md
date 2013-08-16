@@ -1,4 +1,4 @@
-Exercise solutions for the AngularJS Workshop (JavaScript Days 2013)
+AngularJS Workshop (JavaScript Days 2013)
 =========================
 
 Workshop by:

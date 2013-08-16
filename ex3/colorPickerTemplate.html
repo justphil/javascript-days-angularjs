@@ -1,0 +1,37 @@
+R:<input type="range"
+         name="color_r"
+         min="0" max="255" step="1"
+         ng-model="r"><br>
+G:<input type="range"
+         name="color_g"
+         min="0" max="255" step="1"
+         ng-model="g"><br>
+B:<input type="range"
+         name="color_b"
+         min="0" max="255" step="1"
+         ng-model="b"><br>
+A:<input type="range"
+         name="color_a"
+         min="0" max="1" step="0.01"
+         ng-model="a">
+
+<div style="width: 300px;
+            height: 100px;
+            background-color:
+            rgba({{ r }}, {{ g }}, {{ b }}, {{ a }});">
+</div>
+<div>
+<input type="text" ng-model="colorFilterString">
+</div>
+<div>
+    <span ng-repeat="c in colors | filter:colorFilterString"
+          ng-click="selectColor(c)"
+          style="width: 10px;
+                    height: 10px;
+                    display: inline-block;
+                    border: #000000 solid 1px;
+                    margin-left: 3px;
+                    cursor: pointer;
+                    background-color:rgba({{ c.color.r }}, {{ c.color.g }}, {{ c.color.b }}, {{ c.color.a }});">
+    </span>
+</div>

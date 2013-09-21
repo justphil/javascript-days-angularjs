@@ -4,13 +4,16 @@
     <meta charset="utf-8">
 </head>
 
-<body ng-controller="MainCtrl">
+<body ng-controller="mainCtrl">
 
 <h1>AngularJS ColorPicker</h1>
 <color-picker init-r="255" init-g="0" init-b="0" init-a="1.0" on-change="onColorChange(r,g,b,a)">
 </color-picker>
 
-<script src="scripts/vendor/angular.min.js"></script>
-<script src="scripts/colorPickerApp.js"></script>
+<script src="components/angular/angular.min.js"></script>
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/mainCtrl.js"></script>
+<script src="scripts/directives/colorPicker.js"></script>
+<script src="scripts/services/colorService.js"></script>
 </body>
 </html>

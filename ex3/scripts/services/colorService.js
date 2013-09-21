@@ -1,7 +1,15 @@
-/**
- * Created with IntelliJ IDEA.
- * User: pt
- * Date: 21.09.13
- * Time: 18:34
- * To change this template use File | Settings | File Templates.
- */
+"use strict";
+
+colorPickerApp.factory('colorService', function($http) {
+    var srv = {};
+
+    srv.getColors = function() {
+        return $http.get('scripts/data/colors.json');
+    };
+
+    return {
+        getColors: function() {
+            return srv.getColors();
+        }
+    };
+});

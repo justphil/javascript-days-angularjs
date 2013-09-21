@@ -1,6 +1,6 @@
 "use strict";
 
-colorPickerApp.directive('colorPicker', function($http) {
+colorPickerApp.directive('colorPicker', function(colorService) {
     return {
         scope: {
             r:          '@initR',
@@ -35,7 +35,7 @@ colorPickerApp.directive('colorPicker', function($http) {
             };
 
             // Aufg. 3
-            $http.get('scripts/colors.json').then(function(res) {
+            colorService.getColors().then(function(res) {
                 scope.colors = res.data;
                 scope.selectColor = function(c) {
                     console.log('Color ' + c.name + ' selected!');

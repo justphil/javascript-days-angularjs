@@ -1,0 +1,10 @@
+<table>
+  <tr>
+  	<th>Name</th>
+  	<th>EMail</th>
+  </tr>
+  <tr ng-repeat="participant in participants">
+        <td><a href="#/view/{{participant.id}}">{{participant.name}}</td>
+        <td>{{participant.email}}</td>
+  </tr>
+</table>

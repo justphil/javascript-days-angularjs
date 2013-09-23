@@ -1,11 +1,11 @@
 function routeConfig($routeProvider) {
 	$routeProvider.
 	when('/', {
-		controller: ListCtrl,
+		controller: 'listCtrl',
 		templateUrl: 'list.html'
 	}).
 	when('/view/:id', {
-		controller: DetailCtrl,
+		controller: 'detailCtrl',
 		templateUrl: 'detail.html'
 	}).
 	otherwise({

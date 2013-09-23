@@ -1,5 +1,5 @@
 "use strict";
 
-function ListCtrl($scope, dataHolder) {
+app.controller('listCtrl', [ '$scope', 'dataHolder', function ( $scope, dataHolder) {
         $scope.participants   = dataHolder.getParticipants();
-};
+}]);

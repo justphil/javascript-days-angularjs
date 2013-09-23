@@ -1,5 +1,5 @@
 "use strict";
 
-function DetailCtrl($scope, dataHolder,$routeParams) {
+app.controller('detailCtrl', [ '$scope', 'dataHolder', '$routeParams', function ( $scope, dataHolder,$routeParams) {
         $scope.participant = dataHolder.getParticipants()[$routeParams.id];
-};
+}]);

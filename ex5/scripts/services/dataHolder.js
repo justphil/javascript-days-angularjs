@@ -13,6 +13,9 @@ angular.module('myApp')
             },
             getParticipantById: function(id) {
             	return members[id];
+            },
+            add: function(name,email) {
+                members.push( { id: members.length, name: name, email: email} );
             }
     	};
     });

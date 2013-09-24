@@ -8,6 +8,10 @@ function routeConfig($routeProvider) {
 		controller: 'detailCtrl',
 		templateUrl: 'detail.html'
 	}).
+	when('/edit', {
+		controller: 'editCtrl',
+		templateUrl: 'edit.html'
+	}).
 	otherwise({
 		redirectTo: '/'
 	});

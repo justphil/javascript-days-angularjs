@@ -1,5 +1,4 @@
-"use strict";
-
-app.controller('listCtrl', [ '$scope', 'dataHolder', function ( $scope, dataHolder) {
-        $scope.participants   = dataHolder.participants();
-}]);
+angular.module('myApp')
+    .controller('listCtrl', function ($scope, dataHolder) {
+        $scope.participants = dataHolder.participants();
+    });

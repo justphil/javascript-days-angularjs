@@ -1,11 +1,11 @@
-"use strict";
+angular.module('myApp')
+    .controller('editCtrl', function ($scope, dataHolder, $location, $routeParams) {
 
-app.controller('editCtrl', [ '$scope', 'dataHolder', '$location',  function ( $scope, dataHolder, $location) {
-        $scope.name = '';
-        $scope.email = '';
-        
-        $scope.add = function () {
-			dataHolder.add($scope.name,$scope.email);
-			$location.path('/');
+        $scope.participant = dataHolder
+            .getParticipantById($routeParams.id);
+
+        $scope.action = function () {
+            dataHolder.edit($scope.participant);
+            $location.path('/');
         };
-}]);
+    });

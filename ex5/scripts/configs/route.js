@@ -1,30 +1,24 @@
-function routeConfig($routeProvider) {
-	$routeProvider.
-	when('/', {
-		controller: 'listCtrl',
-		templateUrl: 'list.html'
-	}).
-	when('/view/:id', {
-		controller: 'detailCtrl',
-		templateUrl: 'detail.html'
-	}).
-	when('/edit', {
-		controller: 'editCtrl',
-		templateUrl: 'edit.html',
-		resolve: {
-			app: function ($q,$timeout) {
-				var defer = $q.defer();
-				$timeout(function() {
-					defer.resolve();
-				},2000);
-				return defer.promise;
-			}
-		}
-	}).
-	otherwise({
-		redirectTo: '/'
-	});
-	
-}
+app.config(function ($routeProvider) {
 
-app.config(routeConfig);
+    $routeProvider.
+        when('/', {
+            controller : 'listCtrl',
+            templateUrl: 'list.html'
+        }).
+        when('/view/:id', {
+            controller : 'detailCtrl',
+            templateUrl: 'detail.html'
+        }).
+        when('/edit/:id', {
+            controller : 'editCtrl',
+            templateUrl: 'form.html'
+        }).
+        when('/add', {
+            controller: 'addCtrl',
+            template  : 'form.html'
+        }).
+        otherwise({
+            redirectTo: '/'
+        });
+
+});

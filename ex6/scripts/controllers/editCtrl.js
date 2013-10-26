@@ -5,7 +5,7 @@ angular.module('myApp')
             .getParticipantById($routeParams.id);
 
         $scope.action = function () {
-            dataHolder.edit($scope.participant);
+            dataHolder.editById($routeParams.id,$scope.participant);
             $location.path('/');
         };
     });

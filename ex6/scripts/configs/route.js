@@ -15,7 +15,7 @@ app.config(function ($routeProvider) {
         }).
         when('/add', {
             controller: 'addCtrl',
-            template  : 'form.html'
+            templateUrl  : 'form.html'
         }).
         otherwise({
             redirectTo: '/'

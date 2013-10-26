@@ -4,10 +4,11 @@
         <th>EMail</th>
         <th>edit</th>
     </tr>
-    <tr ng-repeat="participant in participants">
-        <td><a href="#/view/{{participant.id}}">{{participant.name}}</td>
+    <tr ng-repeat="(key,participant) in participants">
+        <td><a href="#/view/{{key}}" ng-bind="participant.name"></td>
         <td>{{participant.email}}</td>
-        <td><a href="#/edit/{{participant.id}}">Edit</a></td>
+        <td><a href="#/edit/{{key}}">Edit</a></td>
+        <td><a ng-click="remove(key)">Delete</a></td>
     </tr>
 </table>
 <hr>

@@ -2,20 +2,13 @@ app.config(function ($routeProvider) {
 
     $routeProvider.
         when('/', {
-            controller : 'listCtrl',
-            templateUrl: 'list.html'
+            templateUrl: 'base.html'
         }).
-        when('/view/:id', {
-            controller : 'detailCtrl',
-            templateUrl: 'detail.html'
+        when('/route1', {
+            templateUrl: 'route1.html'
         }).
-        when('/edit/:id', {
-            controller : 'editCtrl',
-            templateUrl: 'form.html'
-        }).
-        when('/add', {
-            controller: 'addCtrl',
-            template  : 'form.html'
+        when('/route2', {
+            templateUrl: 'route2.html'
         }).
         otherwise({
             redirectTo: '/'

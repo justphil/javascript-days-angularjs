@@ -1,8 +1,10 @@
+"use strict";
+
 app.config(function ($routeProvider) {
 
     $routeProvider.
         when('/', {
-            templateUrl: 'base.html'
+            templateUrl: 'root.html'
         }).
         when('/route1', {
             templateUrl: 'route1.html'

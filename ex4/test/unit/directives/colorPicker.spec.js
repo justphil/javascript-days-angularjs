@@ -60,11 +60,43 @@ describe('Directive: colorPicker', function () {
         $httpBackend.when('GET', colorsUrl).respond(colors);
     });
 
+    it('should get a new scope', function() {
+        scope = $rootScope.$new();
+
+        element = $compile(
+            '<color-picker init-r="1" init-g="2" init-b="3" init-a="0.5">' +
+            '</color-picker>'
+        )(scope);
+
+        scope.$apply();
+
+        var colorPickerScope = angular.element(element.children()[0]).scope();
+
+        expect(colorPickerScope.$id).not.toBe(scope.$id);
+    });
+
+    it('should get an isolated scope', function() {
+        scope = $rootScope.$new();
+
+        scope.test = 'test';
+
+        element = $compile(
+            '<color-picker init-r="1" init-g="2" init-b="3" init-a="0.5">' +
+            '</color-picker>'
+        )(scope);
+
+        scope.$apply();
+
+        var colorPickerScope = angular.element(element.children()[0]).scope();
+
+        expect(colorPickerScope.test).toBeUndefined();
+    });
+
     it('should properly set input values on initialization', function () {
         scope = $rootScope.$new();
 
         element = $compile(
-            '<color-picker init-r="1" init-g="2" init-b="3" init-a="0.5" on-change="onColorChange(r,g,b,a)">' +
+            '<color-picker init-r="1" init-g="2" init-b="3" init-a="0.5">' +
             '</color-picker>'
         )(scope);
 
@@ -94,8 +126,8 @@ describe('Directive: colorPicker', function () {
         scope = $rootScope.$new();
 
         element = $compile(
-            '<color-picker init-r="1" init-g="2" init-b="3" init-a="0.5" on-change="onColorChange(r,g,b,a)">' +
-                '</color-picker>'
+            '<color-picker init-r="1" init-g="2" init-b="3" init-a="0.5">' +
+            '</color-picker>'
         )(scope);
 
         scope.$apply();
@@ -106,9 +138,45 @@ describe('Directive: colorPicker', function () {
             e = angular.element(divs[i]);
 
             if (e.hasClass('preview')) {
-                // TODO: some browser's interpretation of 0.5 is 0.4976763726726...
-                expect(e.css('background-color')).toEqual('rgba(1, 2, 3, 0.5)');
+                // some browser interpret 0.5 as 0.4976763726726...
+                var rgbaRegEx = /rgba\((\d+),\s+(\d+),\s+(\d+),\s+(\d{1}.\d+)\)/;
+                var rgbaArray = rgbaRegEx.exec(e.css('background-color'));
+                expect(rgbaArray[1]).toEqual('1');
+                expect(rgbaArray[2]).toEqual('2');
+                expect(rgbaArray[3]).toEqual('3');
+                expect(parseFloat(rgbaArray[4])).toBeCloseTo(0.5);
             }
         }
+    });
+
+    it('should properly invoke the passed callback function on color change', function() {
+        var newR = 0, newG = 0, newB = 0, newA = 0;
+
+        scope = $rootScope.$new();
+        scope.onColorChange = function(r, g, b, a) {
+            newR = r;
+            newG = g;
+            newB = b;
+            newA = a;
+        };
+
+        element = $compile(
+            '<color-picker init-r="1" init-g="2" init-b="3" init-a="0.5" on-change="onColorChange(r,g,b,a)">' +
+            '</color-picker>'
+        )(scope);
+
+        scope.$apply();
+
+        var colorPickerScope = angular.element(element.children()[0]).scope();
+        colorPickerScope.r = 10;
+        colorPickerScope.g = 20;
+        colorPickerScope.b = 30;
+        colorPickerScope.a = 1.0;
+        scope.$apply();
+
+        expect(newR).toBe(10);
+        expect(newG).toBe(20);
+        expect(newB).toBe(30);
+        expect(newA).toBe(1.0);
     });
 });

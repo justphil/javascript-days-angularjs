@@ -1,6 +1,6 @@
 "use strict";
 
-colorPickerApp.directive('colorPicker', function(colorService) {
+angular.module('colorPickerApp').directive('colorPicker', function(colorService) {
     return {
         scope: {
             r:          '@initR',

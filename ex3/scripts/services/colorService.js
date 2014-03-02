@@ -1,6 +1,6 @@
 "use strict";
 
-colorPickerApp.factory('colorService', function($http) {
+angular.module('colorPickerApp').factory('colorService', function($http) {
     var srv = {};
 
     srv.getColors = function() {

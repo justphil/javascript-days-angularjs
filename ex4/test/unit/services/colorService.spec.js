@@ -2,15 +2,29 @@
 
 describe('Service: colorService', function () {
 
-    var colorService;
+    var colorsUrl = 'data/colors.json'
+
+    var colorService,
+        $httpBackend;
 
     // load the application module
     beforeEach(module('colorPickerApp'));
 
     // get a reference to the service
-    beforeEach(inject(function (_colorService_) {
+    beforeEach(inject(function (_colorService_, _$httpBackend_) {
         colorService = _colorService_;
+        $httpBackend = _$httpBackend_;
     }));
+
+    // define trained responses
+    beforeEach(function() {
+        $httpBackend.when('GET', colorsUrl).respond({});
+    });
+
+    afterEach(function() {
+        $httpBackend.verifyNoOutstandingExpectation();
+        $httpBackend.verifyNoOutstandingRequest();
+    });
 
     describe('Public API', function() {
         it('should include a getColors() function', function () {
@@ -20,8 +34,10 @@ describe('Service: colorService', function () {
 
     describe('Public API usage', function() {
         describe('getColors()', function() {
-            it('should perform a corresponding HTTP request', function() {
-                // TODO: use $httpBackend to state the assertion
+            it('should perform a corresponding HTTP request to retrieve the colors', function() {
+                $httpBackend.expectGET(colorsUrl);
+                colorService.getColors();
+                $httpBackend.flush();
             });
         });
     });

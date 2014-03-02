@@ -1,8 +1,8 @@
-AngularJS Workshop (JavaScript Days 2013)
+AngularJS Workshop (JavaScript Days 2014)
 =========================
 
 Workshop by:
 
-- Robin Böhm
+- <a href="https://twitter.com/roobijn" target="_blank">Robin Böhm</a>
+- <a href="https://twitter.com/justphilmusic" target="_blank">Philipp Tarasiewicz</a>
 - Peter Roßbach
-- Philipp Tarasiewicz

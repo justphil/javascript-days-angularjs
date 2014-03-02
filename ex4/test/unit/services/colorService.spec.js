@@ -2,7 +2,7 @@
 
 describe('Service: colorService', function () {
 
-    var colorsUrl = 'data/colors.json'
+    var colorsUrl = 'data/colors.json';
 
     var colorService,
         $httpBackend;

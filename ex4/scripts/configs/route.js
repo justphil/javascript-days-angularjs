@@ -1,19 +1,13 @@
 "use strict";
 
-app.config(function ($routeProvider) {
-
-    $routeProvider.
-        when('/', {
-            templateUrl: 'root.html'
-        }).
-        when('/route1', {
-            templateUrl: 'route1.html'
-        }).
-        when('/route2', {
-            templateUrl: 'route2.html'
-        }).
-        otherwise({
-            redirectTo: '/'
-        });
-
+angular.module('colorPickerApp').config(function ($routeProvider) {
+    $routeProvider.when('/', {
+        templateUrl: 'templates/routes/main.html',
+        controller: 'mainCtrl'
+    }).when('/:r/:g/:b/:a', {
+        templateUrl: 'templates/routes/init-rgba.html',
+        controller: 'initRgbaCtrl'
+    }).otherwise({
+        redirectTo: '/'
+    });
 });

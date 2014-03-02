@@ -1,0 +1,13 @@
+<h2>Init RGBA</h2>
+<p>
+    This colorPicker has been initialized with the following values
+    <ul>
+        <li>R: {{ r }}</li>
+        <li>G: {{ g }}</li>
+        <li>B: {{ b }}</li>
+        <li>A: {{ a }}</li>
+    </ul>
+</p>
+<color-picker init-r="{{ r }}" init-g="{{ g }}" init-b="{{ b }}" init-a="{{ a }}"
+              on-change="onColorChange(r,g,b,a)">
+</color-picker>

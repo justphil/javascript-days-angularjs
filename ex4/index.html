@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html ng-app="colorPickerApp">
 <head>
     <meta charset="utf-8">
 </head>
 <body>
-<h1>myApp</h1>
-<ul>
-    <li><a href="#/">Root</a></li>
-    <li><a href="#/route1">Route1</a></li>
-    <li><a href="#/route2">Route2</a></li>
-</ul>
+
+<h1>colorPickerApp</h1>
 <div ng-view></div>
+
 
 <script src="lib/angular/angular.js"></script>
 <script src="lib/angular-route/angular-route.js"></script>
+
 <script src="scripts/app.js"></script>
 <script src="scripts/configs/route.js"></script>
+<script src="scripts/controllers/mainCtrl.js"></script>
+<script src="scripts/controllers/initRgbaCtrl.js"></script>
+<script src="scripts/directives/colorPicker.js"></script>
+<script src="scripts/services/colorService.js"></script>
+
 </body>
 </html>

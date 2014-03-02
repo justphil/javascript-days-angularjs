@@ -1,14 +1,14 @@
 "use strict";
 
-var colorPickerApp = angular.module('colorPickerApp', []);
+angular.module('colorPickerApp', []);
 
-colorPickerApp.controller('MainCtrl', function ($scope) {
+angular.module('colorPickerApp').controller('MainCtrl', function ($scope) {
     $scope.onColorChange = function(r,g,b,a) {
         console.log('onColorChange', r, g, b, a);
     };
 });
 
-colorPickerApp.directive('colorPicker', function() {
+angular.module('colorPickerApp').directive('colorPicker', function() {
     return {
         scope: {
             r:          '@initR',

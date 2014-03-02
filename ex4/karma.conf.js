@@ -18,7 +18,8 @@ module.exports = function (config) {
             'app/lib/angular-mocks/angular-mocks.js',
             'app/scripts/app.js',
             'app/scripts/**/*.js',
-            'test/unit/**/*.js'
+            'test/unit/**/*.js',
+            'app/templates/**/*.html'
         ],
 
 
@@ -67,6 +68,15 @@ module.exports = function (config) {
 
         // Continuous Integration mode
         // if true, it capture browsers, run tests and exit
-        singleRun: true
+        singleRun: true,
+
+        preprocessors: {
+            'app/templates/**/*.html': 'ng-html2js'
+        },
+
+        ngHtml2JsPreprocessor: {
+            stripPrefix: 'app/',
+            moduleName: 'templates'
+        }
     });
 };

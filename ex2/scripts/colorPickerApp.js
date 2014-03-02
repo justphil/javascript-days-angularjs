@@ -18,7 +18,7 @@ angular.module('colorPickerApp').directive('colorPicker', function() {
             onChange:   '&'
         },
         restrict: 'E',
-        templateUrl: 'colorPickerTemplate.html',
+        templateUrl: 'templates/colorPickerTemplate.html',
         link: function(scope) {
             var COLORS = ['r', 'g', 'b', 'a'];
 

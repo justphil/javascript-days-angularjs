@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div ng-controller="dateCtrl">
+    Today: {{ now | date:'dd. MMMM yyyy HH:mm:ss' }}
+    </div>
+    
+    <hr>
+    <div ng-init="participants = [{name:'peter', email:'peter.rossbach@bee42.com'},
+                             {name:'phil', email:'philipp.tarasiewicz@googlemail.com'},
+                             {name:'robin', email:'robinboehm@me.com'}]"></div>
+    
+    Search: <input ng-model="searchText">
+    <table id="searchTextResults">
+      <tr><th>Name</th><th>EMail</th></tr>
+      <tr ng-repeat="participant in participants | filter:searchText">
+        <td>{{participant.name}}</td>
+        <td>{{participant.email}}</td>
+      </tr>
+    </table>
+    
+    <hr>
+    Any: <input ng-model="search.$"> <br>
+    Name only <input ng-model="search.name"><br>
+    Email only <input ng-model="search.email"><br>
+    Equality <input type="checkbox" ng-model="strict"><br>
+    <table id="searchObjResults">
+      <tr><th>Name</th><th>Email</th></tr>
+      <tr ng-repeat="participant in participants | filter:search:strict">
+        <td>{{participant.name | capitalize }}</td>
+        <td>{{participant.email}}</td>
+      </tr>
+    </table>
+    
+ <script src="lib/angular/angular.js"></script>
+ <script src="scripts/app.js"></script>
+ <script src="scripts/controllers/dateCtrl.js"></script>
+ <script src="scripts/filters/capitalize.js"></script>
+</body>
+</html>

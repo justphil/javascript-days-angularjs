@@ -4,7 +4,7 @@ angular.module('colorPickerApp').factory('colorService', function($http) {
     var srv = {};
 
     srv.getColors = function() {
-        return $http.get('scripts/data/colors.json');
+        return $http.get('data/colors.json');
     };
 
     return {

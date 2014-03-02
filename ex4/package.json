@@ -1,0 +1,30 @@
+{
+  "name": "color-picker-app",
+  "version": "0.0.1",
+  "description": "A simple color picker app in AngularJS.",
+  "main": "app/index.html",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justphil/javascript-days-angularjs"
+  },
+  "keywords": [
+    "colorpicker",
+    "angularjs"
+  ],
+  "author": "Philipp Tarasiewicz, Robin Böhm, Peter Rossbach",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/justphil/javascript-days-angularjs/issues"
+  },
+    "devDependencies": {
+        "karma": "0.10.8",
+        "karma-ng-scenario": "0.1.0",
+        "karma-ng-html2js-preprocessor": "0.1.0"
+    }
+}

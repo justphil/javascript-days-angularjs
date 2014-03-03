@@ -6,41 +6,12 @@ describe('Directive: colorPicker', function () {
     var $compile,
         $rootScope,
         $httpBackend,
+        testColors,
         element,
         scope;
 
-    var colors = [
-        {
-            name: 'smack-red',
-            baseColor: 'red',
-            color: {
-                r: 255,
-                g: 0,
-                b: 0,
-                a: 1.0
-            }
-        },
-        {
-            name: 'bilious-green',
-            baseColor: 'green',
-            color: {
-                r: 0,
-                g: 255,
-                b: 0,
-                a: 1.0
-            }
-        },
-        {
-            name: 'royal-blue',
-            baseColor: 'blue',
-            color: {
-                r: 0,
-                g: 0,
-                b: 255,
-                a: 1.0
-            }
-        }
-    ];
+    // load the test data
+    beforeEach(module('testCommons'));
 
     // load the application module
     beforeEach(module('colorPickerApp'));
@@ -49,15 +20,16 @@ describe('Directive: colorPicker', function () {
     beforeEach(module('templates'));
 
     // get a reference to all used services
-    beforeEach(inject(function (_$compile_, _$rootScope_, _$httpBackend_) {
+    beforeEach(inject(function (_$compile_, _$rootScope_, _$httpBackend_, _testColors_) {
         $compile    = _$compile_;
         $rootScope  = _$rootScope_;
         $httpBackend= _$httpBackend_;
+        testColors  = _testColors_;
     }));
 
     // define trained responses
     beforeEach(function() {
-        $httpBackend.when('GET', colorsUrl).respond(colors);
+        $httpBackend.when('GET', colorsUrl).respond(testColors);
     });
 
     it('should get a new scope', function() {

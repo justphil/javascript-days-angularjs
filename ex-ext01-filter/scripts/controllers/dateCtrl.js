@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('dateCtrl', function ($scope, $timeout) {
+angular.module('myApp').controller('dateCtrl', function ($scope, $timeout) {
       $scope.now = 'Loading...';
       var updateTime = function() {
             $timeout(function() {
